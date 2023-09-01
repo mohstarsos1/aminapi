@@ -3,9 +3,9 @@ const app = express();
 require("dotenv").config();
 const port = process.env.APP_PORT || 8000;
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
+const aboutRouter = require("./routes/about");
+
+app.use("/api", aboutRouter);
 
 app.listen(port, () => {
   console.log(`Server is runnig on port: ${port}`);
